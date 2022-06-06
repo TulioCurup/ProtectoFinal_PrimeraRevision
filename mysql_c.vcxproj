@@ -148,7 +148,6 @@
     <ClCompile Include="Compra_detalle.cpp" />
     <ClCompile Include="ConexionBD.cpp" />
     <ClCompile Include="Empleado.cpp" />
-    <ClCompile Include="Estudiante.cpp" />
     <ClCompile Include="Marca.cpp" />
     <ClCompile Include="mysql_c.cpp" />
     <ClCompile Include="Persona.cpp" />

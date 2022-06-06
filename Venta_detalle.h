@@ -6,32 +6,39 @@
 using namespace std;
 
 class Ventas_detalle {
-private: string venta_detalle;
+private: string idVenta, idProducto, cantidad;
 	   // constructor
 public:
 	Ventas_detalle() {
 	}
-	Ventas_detalle(string vd) {
-		venta_detalle = vd;
+	Ventas_detalle(string idve, string idpr, string ct) {
+		idVenta = idve;
+		idProducto = idpr;
+		cantidad = ct;
 
 	}
 
 	// METODOS
 	//set (modificar)
-	void setVentas_detalle(string vd) { venta_detalle = vd; }
-
+	void setVentas_detalle(string idve) { idVenta = idve; }
+	void setidProducto(string idpr) { idProducto = idpr; }
+	void setCantidad(string ct) { cantidad = ct; }
 	//get (mostrar)
-	string getVentas_detalle() { return venta_detalle; }
+	string getidVentae() { return idVenta; }
 
 	// CREAR
 	void crear() {
 		int q_estado;
 		ConexionBD cn = ConexionBD();
-		cout << "ingrese Venta detalle:";
-		cin >> venta_detalle;
+		cout << "ingrese id venta:";
+		cin >> idVenta;
+		cout << "ingrese id Producto:";
+		cin >> idProducto;
+		cout << "ingrese cantidad:";
+		cin >> cantidad;
 		cn.abrir_conexion();
 		if (cn.getConectar()) {
-			string  insertar = "INSERT INTO ventas detalle(venta detalle) VALUES ('" + venta_detalle + "')";
+			string  insertar = "INSERT INTO ventas_detalle(idVenta,idProducto,cantidad) VALUES ('" + idVenta + "','" + idProducto + "','" + cantidad + "')";
 			const char* i = insertar.c_str();
 			// executar el query
 			q_estado = mysql_query(cn.getConectar(), i);

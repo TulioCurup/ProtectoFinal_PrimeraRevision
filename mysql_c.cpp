@@ -18,17 +18,17 @@ int main()
 {
     string nombres, apellidos, direccion, telefono, genero, DPI, fecha_nacimiento, idPuesto, fecha_inicio_labores, fechaingreso;
     string nit, correo_electronico, fecha_ingreso;
-    string puesto;
-    string marca,proveedor, venta_detalle;
-    string producto, idMarca, Descripcion, precio_costo, precio_venta, existencia, imagen, ventas, compra, idcompra, idproducto, cantidad, precio_costo_unitario;
+    string puesto, nitc;
+    string marca,proveedor, venta_detalle, NoFactura, serie, idCliente, idEmpleado,idVenta, idProducto, cantidad;
+    string producto, idMarca, Descripcion, precio_costo, precio_venta, existencia, imagen, ventas, compra, idcompra, idproducto, precio_costo_unitario;
     Empleado c = Empleado(nombres, apellidos, direccion, telefono, genero, DPI, fecha_nacimiento, idPuesto, fecha_inicio_labores, fechaingreso);
     Clientes d = Clientes(nombres, apellidos,nit, telefono, genero, correo_electronico, fecha_ingreso);
     Puestos p = Puestos(puesto);
     Marca e = Marca(marca);
     Producto p2 = Producto(producto, idMarca, Descripcion,imagen, precio_costo,precio_venta, existencia, fecha_ingreso);
     Proveedor prv = Proveedor(proveedor, nit, direccion, telefono);
-    venta vn = venta(ventas);
-    Ventas_detalle vd = Ventas_detalle(venta_detalle);
+    venta vn = venta(NoFactura, serie, idCliente, idEmpleado);
+    Ventas_detalle vd = Ventas_detalle(idVenta, idProducto, cantidad);
     Compras cp = Compras(compra);
     Compras_detalle cd = Compras_detalle(idcompra, idproducto, cantidad, precio_costo_unitario);
     cout << "Bienvenido";
@@ -47,8 +47,8 @@ int main()
     int opcion6 = 0;
     int opcion7 = 0;
     int opcion8 = 0;
-    int opcion9 = 0;
-   
+    int opcion9 = 0; 
+    int opcion10 = 0;
     
     switch (menu)
 
@@ -272,12 +272,32 @@ int main()
     case 2: cout << "\n-----------------------------------------CAJA--------------------------------------------------";
         cout << "\n Ingrese la Opcion a ejecutar: 1. Realizar venta";
         cout << "\n Opcion:  ";
-   
-        break;
-    }
+        cin >> opcion10;
+        switch (opcion10)
+
+        {
+        case 1: cout << "\nUsted ha seleccionado la opcion 1 facturacion";
+            vn.fac();
+            vn.crear();
+            vd.crear();
+            vn.datosfac();
+            break;
+        case 2: cout << "\nUsted ha seleccionado la opcion 2 ver datos de factura";
+            vn.datosfac();
+            break;
+  /*      case 3: cout << "\nUsted ha seleccionado la opcion 3 actualizar";
+            cd.Actualizar();
+            break;
+        case 4: cout << "\nUsted ha seleccionado la opcion 4 eliminar";
+            cd.Eliminar();
+            break;*/
+
+        }
 
     return 0;
-};
+    }
+
+    };
 
 
 

@@ -21,9 +21,6 @@
     <ClCompile Include="Persona.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Estudiante.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="ConexionBD.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
